@@ -154,7 +154,7 @@ class PLIe:
         sub_gradientes = np.array(aux)
         # print(sub_gradientes)
         if len(sub_gradientes) > 1:
-            hull = convex_hull_andrew(sub_gradientes)
+            hull = convex_hull_Graham(sub_gradientes)
             y = punto_distancia_minima_al_origen(hull)
             # print(y)
             d = y[0]

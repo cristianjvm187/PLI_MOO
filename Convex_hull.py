@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt  # Para visualización
 
 
-def convex_hull_andrew(puntos):
+def convex_hull_Graham(puntos):
     """
-    Calcula el Convex Hull usando el algoritmo de Cadena Monótona de Andrew,
+    Calcula el Convex Hull usando el algoritmo de Cadena Graham,
     optimizado para trabajar con arrays de NumPy.
 
     Parámetros:
@@ -74,7 +74,7 @@ def plot_convex_hull_np(puntos, hull):
     plt.legend()
     plt.xlabel("X")
     plt.ylabel("Y")
-    plt.title("Convex Hull - Algoritmo de Andrew (NumPy)")
+    plt.title("Convex Hull - Algoritmo de Graham (NumPy)")
     plt.grid(True)
     plt.show()
 
@@ -254,7 +254,7 @@ def punto_mas_cercano_segmento(p, a, b):
     return (punto_cercano, distancia)
 
 
-# (Las funciones convex_hull_andrew y punto_dentro_poligono_convexo permanecen iguales que antes)
+# (Las funciones convex_hull_Graham y punto_dentro_poligono_convexo permanecen iguales que antes)
 
 # Ejemplo completo de uso
 if __name__ == "__main__":
@@ -263,7 +263,7 @@ if __name__ == "__main__":
     puntos = np.random.rand(20, 2) * 10 - 3  # Puntos entre -3 y 7
 
     # Calcular convex hull
-    hull = convex_hull_andrew(puntos)
+    hull = convex_hull_Graham(puntos)
 
     # Encontrar punto más cercano y distancia
     punto_cercano, distancia = punto_distancia_minima_al_origen(hull)
