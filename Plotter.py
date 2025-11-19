@@ -156,15 +156,13 @@ if __name__ == "__main__":
     """
     Info =[W,H,[near],[far],[bridges],[inicial],[fase0m],[fase1m],[fase2m],[fase0e],[fase1e],[fase2e]]
     """
-    for num in range(10, 11):
-        info = Extraer(num)
-        plotter(
-            info[0], info[1], info[2], info[3], info[4], np.array([]), "p", num, "0"
-        )
-        plotter(info[0], info[1], info[2], info[3], info[4], info[5], "i", num, "1")
-        plotter(info[0], info[1], info[2], info[3], info[4], info[6], "m", num, "2")
-        plotter(info[0], info[1], info[2], info[3], info[4], info[7], "m", num, "3")
-        plotter(info[0], info[1], info[2], info[3], info[4], info[8], "m", num, "4")
-        plotter(info[0], info[1], info[2], info[3], info[4], info[9], "e", num, "5")
-        plotter(info[0], info[1], info[2], info[3], info[4], info[10], "e", num, "6")
-        plotter(info[0], info[1], info[2], info[3], info[4], info[11], "e", num, "7")
+    num = 25
+    info = Extraer(num)
+    plotter(info[0], info[1], info[2], info[3], info[4], np.array([]), "p", num, "0")
+    plotter(info[0], info[1], info[2], info[3], info[4], info[5], "i", num, "1")
+    plotter(info[0], info[1], info[2], info[3], info[4], info[6], "m", num, "2")
+    plotter(info[0], info[1], info[2], info[3], info[4], info[7], "m", num, "3")
+    plotter(info[0], info[1], info[2], info[3], info[4], info[8], "m", num, "4")
+    plotter(info[0], info[1], info[2], info[3], info[4], info[9], "e", num, "5")
+    plotter(info[0], info[1], info[2], info[3], info[4], info[10], "e", num, "6")
+    plotter(info[0], info[1], info[2], info[3], info[4], info[11], "e", num, "7")

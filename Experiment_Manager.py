@@ -16,5 +16,4 @@ def main(name):
 
 if __name__ == "__main__":
     name = "Experimento "
-    for i in range(10, 11):
-        main(name + str(i))
+    main(name + str(25))
