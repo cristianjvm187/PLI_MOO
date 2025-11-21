@@ -182,13 +182,15 @@ def solver(modelo, m, W, H, points, F, bridges, delta, n_sol, t, armijo, alpha, 
 def save_results_to_json(results, model_name, params):
     """Guarda los resultados en un archivo JSON con marca de tiempo y parámetros."""
 
-    # Convertir arrays de NumPy a listas para serialización JSON
-    def convert_arrays(obj):
-        if isinstance(obj, np.ndarray):
-            return obj.tolist()
-        elif isinstance(obj, (np.int_, np.float_)):
-            return int(obj) if isinstance(obj, np.int_) else float(obj)
-        return obj
+
+def convert_arrays(obj):
+    print(obj)
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, (int, float, np.integer, np.floating)):
+        # Convierte cualquier tipo numérico de NumPy a tipo nativo de Python
+        return int(obj) if isinstance(obj, (int, np.integer)) else float(obj)
+    return obj
 
     # Preparar el diccionario de resultados
     results_dict = {
