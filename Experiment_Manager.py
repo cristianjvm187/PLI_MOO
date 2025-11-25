@@ -1,5 +1,5 @@
 import json
-from Solver import run_solver_with_config, save_results_to_json
+from solver.Solver import run_solver_with_config, save_results_to_json
 
 
 def main(name):
@@ -15,5 +15,5 @@ def main(name):
 
 
 if __name__ == "__main__":
-    name = "Experimento "
+    name = "Experimento"
     main(name + str(25))

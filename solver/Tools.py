@@ -2,8 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 
-r = random.seed(42)
-
 
 def l1(x: np.ndarray, y: np.ndarray):
     return np.linalg.norm(x - y, ord=1)

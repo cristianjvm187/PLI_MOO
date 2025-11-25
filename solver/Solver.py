@@ -1,5 +1,5 @@
-from Euclidian import *
-from Manhattan import *
+from solver.Euclidian import *
+from solver.Manhattan import *
 import random
 import time
 import json
@@ -179,54 +179,11 @@ def solver(modelo, m, W, H, points, F, bridges, delta, n_sol, t, armijo, alpha, 
     )
 
 
-def save_results_to_json(results, model_name, params):
-    """Guarda los resultados en un archivo JSON con marca de tiempo y parámetros."""
-
-
-def convert_arrays(obj):
-    print(obj)
-    if isinstance(obj, np.ndarray):
-        return obj.tolist()
-    elif isinstance(obj, (int, float, np.integer, np.floating)):
-        # Convierte cualquier tipo numérico de NumPy a tipo nativo de Python
-        return int(obj) if isinstance(obj, (int, np.integer)) else float(obj)
-    return obj
-
-    # Preparar el diccionario de resultados
-    results_dict = {
-        "model": model_name,
-        "timestamp": datetime.now().isoformat(),
-        "parameters": params,
-        "results": {
-            "near": convert_arrays(results[0]),
-            "far": convert_arrays(results[1]),
-            "inicial": convert_arrays(results[2]),
-            "fase0": convert_arrays(results[3]),
-            "fase1": convert_arrays(results[4]),
-            "fase2": convert_arrays(results[5]),
-            "state_fase1": convert_arrays(results[6]),
-            "state_fase2": convert_arrays(results[7]),
-            "detencion": convert_arrays(results[8]),
-            "tiempo": convert_arrays(results[9]),
-        },
-    }
-
-    # Nombre del archivo basado en el modelo y timestamp
-    filename = f"{model_name}_resultados.json"
-    with open("Resultados/" + filename, "w") as f:
-        json.dump(results_dict, f, indent=4)
-    print(f"Resultados guardados en {filename}")
-
-
-def configure_seed(seed):
-    """Configura la semilla para reproducibilidad"""
-    random.seed(seed)
-    np.random.seed(seed)
-
-
 def run_solver_with_config(params, model):
     """Ejecuta el solver con parámetros y modelo específico"""
-    configure_seed(params["seed"])  # La semilla se configura aquí
+
+    random.seed(params["seed"])
+    np.random.seed(params["seed"])
 
     return solver(
         modelo=model,
