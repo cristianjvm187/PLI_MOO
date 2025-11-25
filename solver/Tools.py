@@ -55,16 +55,15 @@ def len_skip(p0, v, a, b, c, d):
     if abs(vx) > 1e-5:
         t = (b - x0) / vx
         y = y0 + t * vy
-        # print("joder", p0, v, a, b, c, d, "ahora", t, y, t > 0, y - c >= 0, d - y >= 0)
+
         if t > 0 and (y - c >= 0) and d - y >= 0:
-            # print("yeaha")
             intersecciones.append(t)
             # raise ValueError(len(intersecciones), intersecciones, p0)
     # y = c
     if abs(vy) > 1e-5:
         t = (c - y0) / vy
         x = x0 + t * vx
-        # print("joder", p0, v, a, b, c, d, "ahora", t, x, t > 0, x - c >= 0, d - x >= 0)
+
         if t > 0 and x - a >= 0 and b - x >= 0:
             intersecciones.append(t)
 
