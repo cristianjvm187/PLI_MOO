@@ -1,6 +1,6 @@
 {
     "model": "Experimento 1_e",
-    "timestamp": "2025-06-09T21:08:33.933799",
+    "timestamp": "2025-11-25T11:10:10.106227",
     "parameters": {
         "m": 4,
         "W": 20,
@@ -4281,6 +4281,6 @@
             "len_paso",
             "pto_estacionario"
         ],
-        "tiempo": 1.602980613708496
+        "tiempo": 1.6009738445281982
     }
 }

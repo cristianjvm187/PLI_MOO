@@ -1,6 +1,25 @@
 import json
 from solver.Solver import run_solver_with_config
 from datetime import datetime
+import numpy as np
+
+
+def convert_numpy_types(obj):
+    """
+    Convierte tipos de datos NumPy a tipos nativos de Python
+    """
+    if isinstance(obj, (np.integer, np.int32, np.int64)):
+        return int(obj)
+    elif isinstance(obj, (np.floating, np.float32, np.float64)):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {key: convert_numpy_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_numpy_types(item) for item in obj]
+    else:
+        return obj
 
 
 def save_results_to_json(results, model_name, params):
@@ -9,15 +28,11 @@ def save_results_to_json(results, model_name, params):
     # Preparar el diccionario de resultados
     temp_result = []
     for i in range(len(results) - 2):
-        aux = []
-        for x in results[i]:
-            aux.append(list(x))
-        temp_result.append(aux)
-
+        temp_result.append(convert_numpy_types(results[i]))
     temp_result.append(results[8])
     temp_result.append(results[9])
     results = temp_result
-    print(results)
+
     results_dict = {
         "model": model_name,
         "timestamp": datetime.now().isoformat(),
